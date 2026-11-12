@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BookNest | Discover Your Next Book</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-book-open"></i>
+            <span>BookNest</span>
+        </div>
+
+        <p class="sidebar-label">MENU</p>
+
+        <nav class="navigation">
+            <a href="#home" class="nav-link active">
+                <i class="fa-solid fa-house"></i>
+                Accueil
+            </a>
+
+            <a href="#books" class="nav-link">
+                <i class="fa-solid fa-book"></i>
+                Livres
+            </a>
+
+            <a href="#favorites" class="nav-link">
+                <i class="fa-solid fa-heart"></i>
+                Favoris
+            </a>
+
+            <a href="#assistant" class="nav-link">
+                <i class="fa-solid fa-robot"></i>
+                Assistant IA
+            </a>
+
+            <a href="#about" class="nav-link">
+                <i class="fa-solid fa-circle-info"></i>
+                À propos
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <i class="fa-solid fa-bookmark"></i>
+            <p>Every book opens a new world.</p>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <div>
+                <p class="welcome-text">Welcome to BookNest</p>
+                <h2>Discover your next favorite book.</h2>
+            </div>
+
+            <a href="#assistant" class="topbar-button">
+                <i class="fa-solid fa-robot"></i>
+                Ask the assistant
+            </a>
+        </header>
+
+
+        <!-- HOME -->
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+                <span class="hero-tag">YOUR PERSONAL LIBRARY</span>
+
+                <h1>
+                    Find the book<br>
+                    that speaks to you.
+                </h1>
+
+                <p>
+                    Explore stories, discover new ideas and find
+                    inspiration through books from different cultures
+                    and languages.
+                </p>
+
+                <a href="#books" class="primary-button">
+                    Explore books
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="hero-decoration">
+                <i class="fa-solid fa-book-open"></i>
+            </div>
+
+        </section>
+
+
+        <!-- BOOKS -->
+        <section class="section" id="books">
+
+            <div class="section-heading">
+                <div>
+                    <span class="small-title">EXPLORE</span>
+                    <h2>Discover Books</h2>
+                    <p>Find something new to read today. Click any book to see, modify, or delete it.</p>
+                </div>
+
+                <span class="book-count" id="bookCount">15 books</span>
+            </div>
+
+
+            <!-- ADD BOOK FORM -->
+            <form class="add-book-form" id="addBookForm">
+                <h3>Add a New Book</h3>
+                <div class="form-grid">
+                    <input type="text" id="bookTitle" placeholder="Book title *" required>
+                    <input type="text" id="bookAuthor" placeholder="Author *" required>
+                    <input type="text" id="bookReleaseDate" placeholder="Release date (e.g. 2024)">
+                    <select id="bookGenre" required>
+                        <option value="">Select Genre *</option>
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Mystery">Mystery</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Adventure">Adventure</option>
+                        <option value="Inspirational">Inspirational</option>
+                        <option value="Biography">Biography</option>
+                        <option value="Self Development">Self Development</option>
+                        <option value="Science">Science</option>
+                        <option value="History">History</option>
+                        <option value="Poetry">Poetry</option>
+                        <option value="Philosophy">Philosophy</option>
+                    </select>
+                    <select id="bookLanguage" required>
+                        <option value="English">English</option>
+                        <option value="French">French</option>
+                        <option value="Arabic">Arabic</option>
+                    </select>
+                    <input type="url" id="bookCover" placeholder="Cover image URL (optional)">
+                </div>
+                <textarea id="bookDescription" rows="2" placeholder="Short description of the book..."></textarea>
+                <button type="submit" class="primary-button">Add Book to Library</button>
+            </form>
+
+
+            <!-- SEARCH -->
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search by title or author..."
+                >
+            </div>
+
+
+            <!-- LANGUAGE FILTER -->
+            <div class="filter-group">
+                <h3>Language</h3>
+
+                <div class="filter-list" id="languageFilters">
+
+                    <button class="filter-btn active"
+                            data-language="All">
+                        All languages
+                    </button>
+
+                    <button class="filter-btn"
+                            data-language="Arabic">
+                        العربية
+                    </button>
+
+                    <button class="filter-btn"
+                            data-language="French">
+                        Français
+                    </button>
+
+                    <button class="filter-btn"
+                            data-language="English">
+                        English
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- GENRE FILTER -->
+            <div class="filter-group">
+                <h3>Genres</h3>
+
+                <div class="filter-list" id="genreFilters">
+
+                    <button class="filter-btn active"
+                            data-genre="All">
+                        All
+                    </button>
+
+                    <button class="filter-btn"
+                            data-genre="Fantasy">
+                        Fantasy
+                    </button>
+
+                    <button class="filter-btn"
+                            data-genre="Drama">
+                        Drama
+                    </button>
+
+                    <button class="filter-btn"
+                            data-genre="Mystery">
+                        Mystery
+                    </button>
+
+                    <button class="filter-btn"
+                            data-genre="Romance">
+                        Romance
+                    </button>
+
+                    <button class="filter-btn"
+                            data-genre="Adventure">
+                        Adventure
+                    </button>
+
+                    <button class="filter-btn"
+                            data-genre="Inspirational">
+                        Inspirational
+                    </button>
+
+                    <button class="filter-btn"
+                            data-genre="Biography">
+                        Biography
+                    </button>
+
+                    <button class="filter-btn"
+                            data-genre="Self Development">
+                        Self Development
+                    </button>
+
+                    <button class="filter-btn"
+                            data-genre="Science">
+                        Science
+                    </button>
+
+                    <button class="filter-btn"
+                            data-genre="History">
+                        History
+                    </button>
+
+                    <button class="filter-btn"
+                            data-genre="Poetry">
+                        Poetry
+                    </button>
+
+                    <button class="filter-btn"
+                            data-genre="Philosophy">
+                        Philosophy
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- BOOK CARDS -->
+            <div class="books-grid" id="booksContainer"></div>
+
+            <p class="empty-message" id="emptyMessage" hidden>
+                No books found. Try another search.
+            </p>
+
+        </section>
+
+
+        <!-- FAVORITES -->
+        <section class="section" id="favorites">
+
+            <div class="section-heading">
+                <div>
+                    <span class="small-title">YOUR COLLECTION</span>
+                    <h2>My Favorites</h2>
+                    <p>Your personal selection of books.</p>
+                </div>
+            </div>
+
+            <div class="books-grid" id="favoritesContainer"></div>
+
+            <p class="empty-message" id="favoritesEmpty">
+                You haven't added any favorites yet.
+            </p>
+
+        </section>
+
+
+        <!-- CHATBOT -->
+        <section class="section" id="assistant">
+
+            <div class="section-heading">
+                <div>
+                    <span class="small-title">BOOKNEST AI</span>
+                    <h2>Your Reading Assistant</h2>
+                    <p>Tell me what you like. I'll help you find a book.</p>
+                </div>
+            </div>
+
+
+            <div class="chatbot">
+
+                <div class="chat-header">
+                    <div class="bot-avatar">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+
+                    <div>
+                        <h3>BookNest Assistant</h3>
+                        <p>
+                            <span class="online-dot"></span>
+                            Online · Book recommendations
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="chat-messages" id="chatMessages">
+
+                    <div class="message bot-message">
+                        Hello! Welcome to BookNest.
+                        <br><br>
+                        I'm here to help you discover your next book.
+                        You can ask me in Arabic, French or English.
+                        <br><br>
+                        What kind of books do you enjoy?
+                    </div>
+
+                </div>
+
+
+                <div class="chat-suggestions">
+                    <button class="suggestion-btn"
+                            data-question="I want a fantasy book">
+                        Fantasy books
+                    </button>
+
+                    <button class="suggestion-btn"
+                            data-question="بغيت شي كتاب بالعربية">
+                        كتب بالعربية
+                    </button>
+
+                    <button class="suggestion-btn"
+                            data-question="Je veux un livre romantique">
+                        Romance
+                    </button>
+
+                    <button class="suggestion-btn"
+                            data-question="Recommend a science book">
+                        Science
+                    </button>
+                </div>
+
+
+                <div class="chat-input-area">
+
+                    <input
+                        type="text"
+                        id="chatInput"
+                        placeholder="Ask me about books..."
+                    >
+
+                    <button id="sendBtn" aria-label="Send message">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+        <section class="section about-section" id="about">
+
+            <span class="small-title">ABOUT US</span>
+
+            <h2>More than a library.</h2>
+
+            <p>
+                BookNest is a book discovery platform designed to help
+                readers explore books from different languages and genres.
+
+                With our reading assistant, discovering your next favorite
+                book becomes easier and more enjoyable.
+            </p>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>© 2026 BookNest. Made with <i class="fa-solid fa-heart"></i> for readers.</p>
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- BOOK DETAILS & EDIT MODAL -->
+<div class="modal-overlay" id="bookModal" hidden>
+    <div class="modal-card">
+        <button class="modal-close" id="closeModalBtn" aria-label="Close">&times;</button>
+
+        <!-- VIEW MODE -->
+        <div class="modal-view" id="modalViewMode">
+            <img id="modalCover" src="" alt="Book cover">
+            <div class="modal-body">
+                <span class="book-tag" id="modalGenre"></span>
+                <span class="book-tag" id="modalLanguage"></span>
+                <h2 id="modalTitle"></h2>
+                <p class="modal-meta" id="modalMeta"></p>
+                <p class="modal-desc" id="modalDescription"></p>
+
+                <div class="modal-actions">
+                    <button type="button" class="primary-button" id="editBookBtn">
+                        <i class="fa-solid fa-pen"></i> Modify
+                    </button>
+                    <button type="button" class="danger-button" id="deleteBookBtn">
+                        <i class="fa-solid fa-trash"></i> Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- EDIT MODE -->
+        <form class="modal-edit-form" id="editBookForm" hidden>
+            <h3>Modify Book</h3>
+            <div class="form-grid">
+                <input type="text" id="editTitle" placeholder="Book title *" required>
+                <input type="text" id="editAuthor" placeholder="Author *" required>
+                <input type="text" id="editReleaseDate" placeholder="Release date (e.g. 2024)">
+                <select id="editGenre" required>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Mystery">Mystery</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Inspirational">Inspirational</option>
+                    <option value="Biography">Biography</option>
+                    <option value="Self Development">Self Development</option>
+                    <option value="Science">Science</option>
+                    <option value="History">History</option>
+                    <option value="Poetry">Poetry</option>
+                    <option value="Philosophy">Philosophy</option>
+                </select>
+                <select id="editLanguage" required>
+                    <option value="English">English</option>
+                    <option value="French">French</option>
+                    <option value="Arabic">Arabic</option>
+                </select>
+                <input type="url" id="editCover" placeholder="Cover image URL (optional)">
+            </div>
+            <textarea id="editDescription" rows="3" placeholder="Short description..."></textarea>
+            <div class="modal-actions">
+                <button type="submit" class="primary-button">Save Changes</button>
+                <button type="button" class="secondary-button" id="cancelEditBtn">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
